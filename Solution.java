@@ -39,4 +39,12 @@ public class Solution {
         }
         return gap;
     }
+
+    public int OddOccurrencesInArray(int[] A) {
+        int value = 0;
+        for (int i : A) {
+            value ^= i;
+        }
+        return value;
+    }
 }
