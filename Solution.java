@@ -47,4 +47,8 @@ public class Solution {
         }
         return value;
     }
+
+    public int FrogJmp(int X, int Y, int D) {
+        return (int)Math.ceil((double)(Y-X)/D);
+    }
 }
