@@ -67,4 +67,37 @@ public class Solution {
 
         return total;
     }
+
+    public int TapeEquilibrium(int[] A) {
+        if (A.length == 0) {
+            return 0;
+        } else if (A.length == 1) {
+            return A[0];
+        }
+
+        int[] lArr = new int[A.length - 1];
+        for (int i = 0; i < A.length - 1; i++) {
+            if (i == 0) {
+                lArr[i] = A[i];
+            } else {
+                lArr[i] = A[i] + lArr[i - 1];
+            }
+        }
+
+        int[] rArr = new int[A.length - 1];
+        for (int j = A.length - 1; j > 0; j--) {
+            if (j == A.length - 1) {
+                rArr[j - 1] = A[j];
+            } else {
+                rArr[j - 1] = A[j] + rArr[j];
+            }
+        }
+
+        int value = Integer.MAX_VALUE;
+        for (int k = 0; k < rArr.length; k++) {
+            value = Math.min(value, Math.abs(lArr[k] - rArr[k]));
+        }
+
+        return value;
+    }
 }
