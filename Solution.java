@@ -1,5 +1,9 @@
 package com.example.user.testapp;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Blaize on 2017/10/19.
  */
@@ -136,5 +140,24 @@ public class Solution {
         }
 
         return (sum == 1) ? finalStep : -1;
+    }
+
+    public int MissingInteger(int[] A) {
+        if (A.length == 1 && A[0] == 1) {
+            return 2;
+        } else if (A.length == 1 && A[0] != 1) {
+            return 1;
+        }
+
+        Arrays.sort(A);
+
+        int min = 0;
+        for(int i : A) {
+            if (min + 1 == i) {
+                min = i;
+            }
+        }
+
+        return min + 1;
     }
 }
