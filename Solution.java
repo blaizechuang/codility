@@ -115,4 +115,26 @@ public class Solution {
         }
         return 1;
     }
+
+    public int FrogRiverOne(int X, int[] A) {
+        int[] resultArray = new int[X + 1];
+        for (int i = 0; i < resultArray.length; i++) {
+            resultArray[i] = 1;
+        }
+
+        int sum = resultArray.length;
+        int finalStep = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (resultArray[A[i]] == 1) {
+                resultArray[A[i]] = 0;
+                sum--;
+                if (sum == 1) {
+                    finalStep = i;
+                    break;
+                }
+            }
+        }
+
+        return (sum == 1) ? finalStep : -1;
+    }
 }
