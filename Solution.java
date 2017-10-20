@@ -51,4 +51,20 @@ public class Solution {
     public int FrogJmp(int X, int Y, int D) {
         return (int)Math.ceil((double)(Y-X)/D);
     }
+
+    /**
+    Performance only 60%
+     */
+    public int PermMissingElem(int[] A) {
+        int N = A.length + 1;
+        int total = N*(N+1)/2;
+        if (total > Integer.MAX_VALUE) {
+            return 1;
+        }
+        for (int i = 0; i < A.length; i++) {
+            total -= A[i];
+        }
+
+        return total;
+    }
 }
