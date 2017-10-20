@@ -100,4 +100,19 @@ public class Solution {
 
         return value;
     }
+
+    public int PermCheck(int[] A) {
+        int N = A.length;
+        boolean[] valid = new boolean[N+1];
+        for (int index : A)
+            if (index > N)
+                return 0;
+            else
+                valid[index] = true;
+        for (int i = 1; i <= N; i++) {
+            if (!valid[i])
+                return 0;
+        }
+        return 1;
+    }
 }
