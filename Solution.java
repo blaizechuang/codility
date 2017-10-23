@@ -160,4 +160,12 @@ public class Solution {
 
         return min + 1;
     }
+
+    public int CountDiv(int A, int B, int K) {
+        int count = B/K - A/K;
+        if (A%K == 0) {
+            count++;
+        }
+        return count;
+    }
 }
