@@ -168,4 +168,20 @@ public class Solution {
         }
         return count;
     }
+
+    public int MinAvgTwoSlice(int[] A) {
+        double min = Integer.MAX_VALUE, tmp_2, tmp_3 = Integer.MAX_VALUE;
+        int index = 0;
+        for (int i = 0; i< A.length - 1; i++) {
+            tmp_2 = (A[i] + A[i + 1])/2.0;
+            if (i < A.length - 2) {
+                tmp_3 = (A[i] + A[i + 1] + A[i + 2])/3.0;
+            }
+            if (min > Math.min(tmp_2, tmp_3)) {
+                min = Math.min(tmp_2, tmp_3);
+                index = i;
+            }
+        }
+        return index;
+    }
 }
