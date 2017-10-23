@@ -2,7 +2,6 @@ package com.example.user.testapp;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Blaize on 2017/10/19.
@@ -183,5 +182,13 @@ public class Solution {
             }
         }
         return index;
+    }
+
+    public int Distinct(int[] A) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i< A.length; i++) {
+            set.add(A[i]);
+        }
+        return set.size();
     }
 }
