@@ -9,6 +9,21 @@ import java.util.HashSet;
 
 public class Solution {
 
+    public int Triangle(int[] A) {
+        if (A.length < 3) {
+            return 0;
+        }
+
+        Arrays.sort(A);
+        for (int i = 0; i < A.length - 2; i++) {
+            if ((double)A[i] + (double)A[i + 1] > (double)A[i + 2]) {
+                return 1;
+            }
+        }
+
+        return 0;
+    }
+
     public int[] CyclicRotation(int [] A, int K) {
         if (K == 0 || A.length == 0 || K % A.length == 0) {
             return A;
