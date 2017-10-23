@@ -9,6 +9,22 @@ import java.util.HashSet;
 
 public class Solution {
 
+    public int MaxProductOfThree(int[] A) {
+        Arrays.sort(A);
+
+        double sum = 0;
+        if (A[0]*A[1] > 0 && A[0] < 0) {
+            sum = Math.max(A[0] * A[1] * A[A.length - 1], A[A.length - 1] * A[A.length - 2] * A[A.length - 3]);
+        } else {
+            sum = A[A.length - 1] * A[A.length - 2] * A[A.length - 3];
+        }
+        if (sum > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+
+        return (int)sum;
+    }
+
     public int Triangle(int[] A) {
         if (A.length < 3) {
             return 0;
